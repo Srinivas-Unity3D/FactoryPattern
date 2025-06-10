@@ -10,7 +10,7 @@ namespace WithFactory
         void Start()
         {
             IEnemy zombie = EnemyFactory.CreateEnemy("Zombie");
-            IEnemy robot = EnemyFactory.CreateEnemy("robot");
+            IEnemy robot = EnemyFactory.CreateEnemy("Robot");
             IEnemy hydra = EnemyFactory.CreateEnemy("Hydra");
 
             zombie?.Attack();
