@@ -1,3 +1,4 @@
+using Singleton.Events;
 using UnityEngine;
 
 
@@ -9,6 +10,8 @@ namespace Singleton.Managers
 
         [SerializeField] private AudioClip pickupClick;
         private AudioSource audioSource;
+
+        public GameEvent playAudioEvent;
 
         private void Awake()
         {
@@ -22,6 +25,18 @@ namespace Singleton.Managers
 
             audioSource = gameObject.AddComponent<AudioSource>();
             audioSource.playOnAwake = false;
+        }
+
+        private void OnEnable()
+        {
+            playAudioEvent.Register(PlayPickupSound);
+        }
+
+
+
+        private void OnDisable()
+        {
+            playAudioEvent.UnRegister(PlayPickupSound);
         }
 
         public void PlayPickupSound() 

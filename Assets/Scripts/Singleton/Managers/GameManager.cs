@@ -24,11 +24,6 @@ namespace Singleton.Managers
         public void AddScore(int value)
         {
             score += value;
-
-            UIManager.Instance.UpdateScore(score);
-
-            AudioManager.Instance.PlayPickupSound();
-
             Debug.Log($"Score: {score}");
         }
     }

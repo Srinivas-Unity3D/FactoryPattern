@@ -1,5 +1,6 @@
 using UnityEngine;
 using Singleton.Managers;
+using Singleton.Events;
 
 
 namespace Singleton.Player 
@@ -7,6 +8,10 @@ namespace Singleton.Player
     public class PlayerController : MonoBehaviour
     {
         public float moveSpeed = 5f;
+
+        [Header("Events")]
+        public GameEvent pickupEvent;
+        public GameEvent scoreChangeEvent;
 
         private void Update()
         {
@@ -21,7 +26,9 @@ namespace Singleton.Player
         {
             if (other.CompareTag("Collectibles")) 
             {
+                pickupEvent?.Raise();
                 GameManager.instance.AddScore(1);
+                scoreChangeEvent?.Raise();
                 Destroy(other.gameObject);
             }
         }

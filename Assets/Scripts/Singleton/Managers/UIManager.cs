@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Singleton.Events;
+using System;
 
 namespace Singleton.Managers 
 {
@@ -8,6 +10,8 @@ namespace Singleton.Managers
     {
         public static UIManager Instance { get; private set; }
         public TextMeshProUGUI scoreText;
+
+        public GameEvent scoreupdateEvent;
 
         private void Awake()
         {
@@ -20,11 +24,21 @@ namespace Singleton.Managers
             Instance = this;
         }
 
-        public void UpdateScore(int score) 
+        private void OnEnable()
         {
-            scoreText.text = score.ToString();
+            scoreupdateEvent.Register(UpdateScore);
+        }
+
+       
+
+        private void OnDisable()
+        {
+            scoreupdateEvent.UnRegister(UpdateScore);
+        }
+
+        public void UpdateScore() 
+        {
+            scoreText.text = $"Score: {GameManager.instance.score}";
         }
     }
-
-
 }

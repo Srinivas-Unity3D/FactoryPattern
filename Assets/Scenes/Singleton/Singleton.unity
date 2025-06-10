@@ -436,6 +436,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  pickupEvent: {fileID: 11400000, guid: 856541d9505e31148b594f41eb0c99d5, type: 2}
+  scoreChangeEvent: {fileID: 11400000, guid: 5aac1fcd4d4c59e4c8a5e2bc5af4bd91, type: 2}
 --- !u!54 &1404241241
 Rigidbody:
   m_ObjectHideFlags: 0
