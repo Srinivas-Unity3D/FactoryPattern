@@ -3,33 +3,23 @@ using UnityEngine.UI;
 using TMPro;
 using Singleton.Events;
 using System;
+using Singleton.Variables;
 
 namespace Singleton.Managers 
 {
     public class UIManager : MonoBehaviour
     {
-        public static UIManager Instance { get; private set; }
         public TextMeshProUGUI scoreText;
 
         public GameEvent scoreupdateEvent;
 
-        private void Awake()
-        {
-            if (Instance != null && Instance != this) 
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            Instance = this;
-        }
+        [Header("Variables")]
+        public IntVariable scoreVariable;
 
         private void OnEnable()
         {
             scoreupdateEvent.Register(UpdateScore);
         }
-
-       
 
         private void OnDisable()
         {
@@ -38,7 +28,7 @@ namespace Singleton.Managers
 
         public void UpdateScore() 
         {
-            scoreText.text = $"Score: {GameManager.instance.score}";
+            scoreText.text = $"Score: {scoreVariable.value}";
         }
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using Singleton.Managers;
 using Singleton.Events;
+using Singleton.Variables;
 
 
 namespace Singleton.Player 
@@ -12,6 +13,9 @@ namespace Singleton.Player
         [Header("Events")]
         public GameEvent pickupEvent;
         public GameEvent scoreChangeEvent;
+
+        [Header("Variables")]
+        public IntVariable scoreVariable;
 
         private void Update()
         {
@@ -27,7 +31,7 @@ namespace Singleton.Player
             if (other.CompareTag("Collectibles")) 
             {
                 pickupEvent?.Raise();
-                GameManager.instance.AddScore(1);
+                scoreVariable.Add(1);
                 scoreChangeEvent?.Raise();
                 Destroy(other.gameObject);
             }

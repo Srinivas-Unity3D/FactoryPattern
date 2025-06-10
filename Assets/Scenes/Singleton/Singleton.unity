@@ -206,6 +206,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1799263974}
+  scoreupdateEvent: {fileID: 11400000, guid: 5aac1fcd4d4c59e4c8a5e2bc5af4bd91, type: 2}
+  scoreVariable: {fileID: 11400000, guid: 9002ae1d1865ded4591697c378b51529, type: 2}
 --- !u!4 &682952567
 Transform:
   m_ObjectHideFlags: 0
@@ -295,6 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupClick: {fileID: 8300000, guid: 1c7ea3e91115ec940b75418d0f500e80, type: 3}
+  playAudioEvent: {fileID: 11400000, guid: 856541d9505e31148b594f41eb0c99d5, type: 2}
 --- !u!4 &1115443758
 Transform:
   m_ObjectHideFlags: 0
@@ -438,6 +441,7 @@ MonoBehaviour:
   moveSpeed: 5
   pickupEvent: {fileID: 11400000, guid: 856541d9505e31148b594f41eb0c99d5, type: 2}
   scoreChangeEvent: {fileID: 11400000, guid: 5aac1fcd4d4c59e4c8a5e2bc5af4bd91, type: 2}
+  scoreVariable: {fileID: 11400000, guid: 9002ae1d1865ded4591697c378b51529, type: 2}
 --- !u!54 &1404241241
 Rigidbody:
   m_ObjectHideFlags: 0
